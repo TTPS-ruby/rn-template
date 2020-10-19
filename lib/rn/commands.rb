@@ -16,6 +16,7 @@ module RN
     register 'notes', aliases: ['n'] do |prefix|
       prefix.register 'create', Notes::Create
       prefix.register 'delete', Notes::Delete
+      prefix.register 'retitle', Notes::Retitle
       prefix.register 'edit', Notes::Edit
       prefix.register 'list', Notes::List
       prefix.register 'show', Notes::Show

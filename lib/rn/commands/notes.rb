@@ -38,7 +38,7 @@ module RN
       end
 
       class Edit < Dry::CLI::Command
-        desc 'Edit a note'
+        desc 'Edit the content a note'
 
         argument :title, required: true, desc: 'Title of the note'
         option :book, type: :string, desc: 'Book'
@@ -52,6 +52,25 @@ module RN
         def call(title:, **options)
           book = options[:book]
           warn "TODO: Implementar modificación de la nota con título '#{title}' (del libro '#{book}').\nPodés comenzar a hacerlo en #{__FILE__}:#{__LINE__}."
+        end
+      end
+
+      class Retitle < Dry::CLI::Command
+        desc 'Retitle a note'
+
+        argument :old_title, required: true, desc: 'Current title of the note'
+        argument :new_title, required: true, desc: 'New title for the note'
+        option :book, type: :string, desc: 'Book'
+
+        example [
+          'todo TODO                                 # Changes the title of the note titled "todo" from the global book to "TODO"',
+          '"New note" "Just a note" --book "My book" # Changes the title of the note titled "New note" from the book "My book" to "Just a note"',
+          'thoughts thinking --book Memoires         # Changes the title of the note titled "thoughts" from the book "Memoires" to "thinking"'
+        ]
+
+        def call(old_title:, new_title:, **options)
+          book = options[:book]
+          warn "TODO: Implementar cambio del título de la nota con título '#{old_title}' hacia '#{new_title}' (del libro '#{book}').\nPodés comenzar a hacerlo en #{__FILE__}:#{__LINE__}."
         end
       end
 
