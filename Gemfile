@@ -1,6 +1,5 @@
-source "https://rubygems.org"
-git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+source 'https://rubygems.org'
 
-ruby "~> 2.7.2"
+ruby '>= 2.5'
 
-gem "dry-cli"
+gem 'dry-cli', '~> 0.6'
